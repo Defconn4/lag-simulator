@@ -3,9 +3,11 @@ import MySlider from './MySlider';    // TODO: Remember to import new components
 import LagButton from './LagButton';
 import LagTextbox from './LagTextbox'
 import { Box } from '@mui/system';
+import { useState } from 'react';
 
 // Component = returns something to be rendered in the browser, typically JSX. 
-function App() {
+function App(props) {
+
   return (
     <div style={{backgroundColor: "#B58A98"}}>
       <div className="App">
@@ -13,7 +15,7 @@ function App() {
         <p>Use the slider below to adjust for your desired latency:</p>
       </div>
       <div>
-        <MySlider></MySlider>
+        <MySlider data={props.data}></MySlider>
       </div>
       <div>
         <Box sx = {{
@@ -21,7 +23,9 @@ function App() {
                   justifyContent: 'center',
                   alignItems: 'center',
                   flexWrap: 'nowrap',
-                  flexDirection: 'row'}}>
+                  flexDirection: 'row',
+                  m: 5}}>
+                    
             <LagButton text = "Set to 0 ms"/>
             <LagButton text = "Set to 100 ms"/>
             <LagButton text = "Set to 250 ms"/>

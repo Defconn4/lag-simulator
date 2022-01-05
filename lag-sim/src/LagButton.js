@@ -1,4 +1,5 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
+import * as React from 'react';
 
 function LagButton (props) {
 
@@ -8,9 +9,13 @@ function LagButton (props) {
 
     return(
         <div>
-            <Button onClick={handleClick}>
-                <p>{props.text}</p>
-            </Button>
+            <Box sx = {{
+                p: 0.5
+            }}>
+                <Button variant="outlined">
+                    <p>{props.text}</p>
+                </Button>
+            </Box>
         </div>
     );
 }

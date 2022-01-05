@@ -3,7 +3,6 @@ import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import img from './High_latency_warning_BF4.jpg'
 
-
 const marks = [
     {
         value: 0,
@@ -27,12 +26,13 @@ const marks = [
     }
 ];
 
-function MySlider() {
+function MySlider(props) {
 
+    // value is the state's current value
+    // setValue is the function used to change the state's current value
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
-        console.log(newValue)
         setValue(newValue);
     };
 
@@ -46,16 +46,21 @@ function MySlider() {
                     max={1000}
                     defaultValue={20}
                     onChange={handleChange}
-                    valueLabelDisplay='on'
+                    value={props.value}
                     marks={marks}
                 />
             </Box>
+            <p style={{         // Setting inline JS styles
+                fontSize: '22px',
+                fontweight: 'bold',
+                fontFamily: 'arial',
+                color: '#DFFF00',
+                textAlign: 'center'}}>
+            Current Lag: {value} ms
+            </p>
         </div>
     );
 }
 
 // Make function usable in other files.
 export default MySlider;
-
-
-// TODO: Set up the home page (header and basic style) and get the slider formatted nicely.
